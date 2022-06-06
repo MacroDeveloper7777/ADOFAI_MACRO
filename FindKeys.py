@@ -6,7 +6,6 @@ K8MAX=0 # Unused
 lefthand=['A','S','D','F'] # Keys with Left Hand
 righthand=['J','K','L',';'] # Keys with Right Hand
 for x in range(len(timlist_old)):
-    print(x)
     if x==0:
         keylist.append('j')
         continue
