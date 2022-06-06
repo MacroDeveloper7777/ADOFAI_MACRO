@@ -6,11 +6,12 @@ K8MAX=0 # Unused
 lefthand=['A','S','D','F'] # Keys with Left Hand
 righthand=['J','K','L',';'] # Keys with Right Hand
 for x in range(len(timlist_old)):
+    print(x)
     if x==0:
-        keylist.append('J')
+        keylist.append('j')
         continue
     # X Changing hands before the end
-    if isrighthand==True:
+    elif isrighthand==True:
         # RH #
         if timlist_old[x]>=K2MAX:
             # 2K #
@@ -22,13 +23,13 @@ for x in range(len(timlist_old)):
             '''
             if keylist[-1] in righthand: # First Factor
                 isrighthand=False
-                keylist.append('F')
+                keylist.append('f')
             elif keylist[-1] in lefthand: # Second Factor
                 isrighthand=True
-                keylist.append('J')
+                keylist.append('j')
             else:
                 print('error in r2K'+f' {keylist[-1]} {len(keylist)}')
-        elif timlist_old[x]>=K4MAX:
+        elif K4MAX<=timlist_old[x] and timlist_old[x]<K2MAX:
             # 4K #
             '''
             ABLE FACTORS:
@@ -39,12 +40,12 @@ for x in range(len(timlist_old)):
             '''
             if keylist[-1] in lefthand: # First Factor
                 isrighthand=True
-                keylist.append('J')
-            elif keylist[-1]=='J': # Second Factor
-                keylist.append('K')
+                keylist.append('j')
+            elif keylist[-1]=='j': # Second Factor
+                keylist.append('k')
                 isrighthand=True
             elif keylist[-1] in righthand: # Third Factor
-                keylist.append('F')
+                keylist.append('f')
                 isrighthand=False
             else:
                 print('error in r4K'+f' {keylist[-1]} {len(keylist)}')
@@ -61,22 +62,22 @@ for x in range(len(timlist_old)):
             '''
             if keylist[-1] in lefthand: # First Factor
                 isrighthand=True
-                keylist.append('J')
-            elif keylist[-1]=='J': # Second Factor
+                keylist.append('j')
+            elif keylist[-1]=='j': # Second Factor
                 isrighthand=True
-                keylist.append('K')
-            elif keylist[-1]=='K': # Third Factor
+                keylist.append('k')
+            elif keylist[-1]=='k': # Third Factor
                 isrighthand=True
-                keylist.append('L')
-            elif keylist[-1]=='L': # Fourth Factor
+                keylist.append('l')
+            elif keylist[-1]=='l': # Fourth Factor
                 isrighthand=True
                 keylist.append(';')
             elif keylist[-1]==';': # Fifth Factor
-                keylist.append('F')
+                keylist.append('f')
                 isrighthand=False
             else:
                 print('error in r8K'+f' {keylist[-1]} {len(keylist)}')
-    if isrighthand==False:
+    elif isrighthand==False:
         # RH #
         if timlist_old[x]>=K2MAX:
             # 2K #
@@ -87,13 +88,13 @@ for x in range(len(timlist_old)):
             '''
             if keylist[-1] in lefthand: # First Factor
                 isrighthand=True
-                keylist.append('J')
+                keylist.append('j')
             elif keylist[-1] in righthand: # Second Factor
                 isrighthand=False
-                keylist.append('F')
+                keylist.append('f')
             else:
                 print('error in l2K'+f' {keylist[-1]} {len(keylist)}')
-        elif timlist_old[x]>=K4MAX:
+        elif K4MAX<=timlist_old[x] and timlist_old[x]<K2MAX:
             # 4K #
             '''
             ABLE FACTORS:
@@ -104,12 +105,12 @@ for x in range(len(timlist_old)):
             '''
             if keylist[-1] in righthand: # First Factor
                 isrighthand=False
-                keylist.append('F')
-            elif keylist[-1]=='F': # Second Factor
-                keylist.append('D')
+                keylist.append('f')
+            elif keylist[-1]=='f': # Second Factor
+                keylist.append('d')
                 isrighthand=False
             elif keylist[-1] in lefthand: # Third Factor
-                keylist.append('J')
+                keylist.append('j')
                 isrighthand=True
             else:
                 print('error in l4K'+f' {keylist[-1]} {len(keylist)}')
@@ -126,15 +127,15 @@ for x in range(len(timlist_old)):
             '''
             if keylist[-1] in righthand: # First Factor
                 isrighthand=True
-                keylist.append('F')
-            elif keylist[-1]=='F': # Second Factor
-                keylist.append('D')
-            elif keylist[-1]=='D': # Third Factor
-                keylist.append('S')
-            elif keylist[-1]=='S': # Fourth Factor
-                keylist.append('A')
-            elif keylist[-1]=='A': # Fifth Factor
-                keylist.append('J')
+                keylist.append('f')
+            elif keylist[-1]=='f': # Second Factor
+                keylist.append('d')
+            elif keylist[-1]=='d': # Third Factor
+                keylist.append('s')
+            elif keylist[-1]=='s': # Fourth Factor
+                keylist.append('a')
+            elif keylist[-1]=='a': # Fifth Factor
+                keylist.append('j')
                 isrighthand=False
             else:
                 print('error in l8K'+f' {keylist[-1]} {len(keylist)}')
